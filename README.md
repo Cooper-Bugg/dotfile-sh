@@ -27,7 +27,7 @@ cooper@arch-thinkpad
 ## Stack
 
 - **WM** — Hyprland (Lua config)
-- **Bar** — Waybar, bottom, chunky
+- **Bar** — Waybar, bottom, chunky (configured with native Hyprland workspace window icons, and a custom logo tooltip displaying system performance stats & top processes)
 - **Launcher** — Rofi
 - **Terminal** — Kitty
 - **Editor** — Neovim (lazy.nvim, clangd, DAP, Treesitter, Kanagawa)

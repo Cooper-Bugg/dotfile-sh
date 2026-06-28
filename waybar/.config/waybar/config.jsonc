@@ -9,13 +9,37 @@
     "modules-right": ["custom/opacity", "custom/theme", "custom/wallpaper-lock", "custom/wallpaper-match", "battery", "backlight", "pulseaudio", "network", "bluetooth", "tray"],
 
     "custom/menu": {
-        "format": "  󰣇  ",
-        "on-click": "rofi -show drun -show-icons",
-        "tooltip": false
+        "exec": "python3 ~/.config/waybar/scripts/perf_status.py",
+        "return-type": "json",
+        "interval": 5,
+        "on-click": "kitty -e sh -c 'which btop >/dev/null 2>&1 && btop || top'",
+        "tooltip": true
     },
 
     "hyprland/workspaces": {
-        "format": "{id}",
+        "format": "{id} {windows}",
+        "window-rewrite-default": "",
+        "format-window-separator": " ",
+        "window-rewrite": {
+            "class<kitty> title<.*(codex|Codex|agent|Agent|agy|Antigravity|gemini|Gemini|claude|Claude).*>" : "󰣇",
+            "class<code-oss> title<.*(Copilot|Agent|Chat).*>" : "󰣇",
+            "class<kitty> title<.*(bvim|bnvim|nvim|vim).*>" : "",
+            "class<kitty>" : "",
+            "class<code-oss>" : "󰅨",
+            "class<libreoffice.*>" : "󰈙",
+            "class<soffice>" : "󰈙",
+            "class<vesktop>" : "󰙯",
+            "class<discord>" : "󰙯",
+            "class<firefox>" : "󰈹",
+            "class<zen.*>" : "󰈹",
+            "class<thunderbird>" : "󰇮",
+            "class<nemo>" : "󰉋",
+            "class<org.gnome.Nautilus>" : "󰉋",
+            "class<zathura>" : "",
+            "class<org.pwmt.zathura>" : "",
+            "class<virt-manager>" : "󰍹",
+            "class<org.remmina.Remmina>" : "󰢹"
+        },
         "on-click": "activate",
         "sort-by-number": true
     },
